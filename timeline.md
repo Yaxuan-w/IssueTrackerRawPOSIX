@@ -7,8 +7,11 @@
   - problem in select: `select(8, 0x4d110527e0, 0x4d11052860, 0x00000000, 0x00000000) = 1`
   - keep tracking down, problem is in `bind` - **sometimes working sometimes not... NOT known the root cause**
   - get the error log: `fcntl(F_SETOWN) failed while spawning "worker process" (3: No such process)`
-   - F_SETOWN shouldn't call kernel (process / signals is handled inside of Lind)
-  - 
+  	- F_SETOWN shouldn't call kernel (process / signals is handled inside of Lind)
+	- In `F_SETOWN` and `F_GETOWN` conditions should always return 0
+  - `accept` met non-UTF-8 error. Unix path might not be UTF8 chars, so change implementation to directly memory operations. Refined `connect` and `bind` as well. 
+
+Nginx now works! 
   
 ## 6/14/2024
 
