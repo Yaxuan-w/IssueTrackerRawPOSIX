@@ -7,6 +7,8 @@
   - problem in select: `select(8, 0x4d110527e0, 0x4d11052860, 0x00000000, 0x00000000) = 1`
   - keep tracking down, problem is in `bind` - **sometimes working sometimes not... NOT known the root cause**
   - get the error log: `fcntl(F_SETOWN) failed while spawning "worker process" (3: No such process)`
+   - F_SETOWN shouldn't call kernel (process / signals is handled inside of Lind)
+  - 
   
 ## 6/14/2024
 
