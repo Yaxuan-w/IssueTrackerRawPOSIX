@@ -3,7 +3,8 @@
 - Keep debugging the Nginx
   Try to get the strace results and compare to see the error location
   - last read returns 0 but should return 19
-  - track to fd=255 ... very beginning is gethostname..?
+  - track to fd=255 ... very beginning is gethostname..? - NO
+  - problem in select: `select(8, 0x4d110527e0, 0x4d11052860, 0x00000000, 0x00000000) = 1`
   
 ## 6/14/2024
 
