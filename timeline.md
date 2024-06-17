@@ -2,6 +2,8 @@
 
 - Keep debugging the Nginx
   Try to get the strace results and compare to see the error location
+  - last read returns 0 but should return 19
+  - track to fd=255 ... very beginning is gethostname..?
   
 ## 6/14/2024
 
