@@ -5,6 +5,7 @@
   - last read returns 0 but should return 19
   - track to fd=255 ... very beginning is gethostname..? - NO
   - problem in select: `select(8, 0x4d110527e0, 0x4d11052860, 0x00000000, 0x00000000) = 1`
+  - keep tracking down, problem is in `bind`
   
 ## 6/14/2024
 
