@@ -16,3 +16,12 @@
 ## `sockaddr` Data Structure Refactor
 
 - [ ] Replace `GenSockaddr` with new implementation
+
+## `fcntl`
+
+- [ ] Return value for `F_GETOWN` and `F_SETOWN`
+
+## `bind` and `connect`
+
+- [x] Reason of failure of refinement of bind / connect
+- [ ] Refine `bind` / `connect`

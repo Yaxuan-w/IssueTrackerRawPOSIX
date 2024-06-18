@@ -24,10 +24,9 @@ sudo mknod src/safeposix-rust/tmp/dev/random c 1 8
 sudo chmod 666 src/safeposix-rust/tmp/dev/random
 sudo mknod src/safeposix-rust/tmp/dev/null c 1 3
 sudo chmod 666 src/safeposix-rust/tmp/dev/null
+sudo mknod src/safeposix-rust/tmp/dev/urandom c 1 9
+sudo chmod 666 src/safeposix-rust/tmp/dev/urandom
 ```
-
-Make related directory:
-
 
 Load LAMP Stack:
 
