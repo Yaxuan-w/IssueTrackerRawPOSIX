@@ -1,4 +1,9 @@
-## 6/16/2024
+## 6/18/2024
+
+- Try running LAMP Stack with newest libc
+  - `bind` / `connect` failed due to ownership issues
+
+## 6/16/2024 - 6/17/2024
 
 - Keep debugging the Nginx
   Try to get the strace results and compare to see the error location
@@ -11,8 +16,6 @@
 	- In `F_SETOWN` and `F_GETOWN` conditions should always return 0
   - `accept` met non-UTF-8 error. Unix path might not be UTF8 chars, so change implementation to directly memory operations. Refined `connect` and `bind` as well. 
 
-Nginx now works! 
-  
 ## 6/14/2024
 
 - RawPOSIX: Nginx could connect and set the port to listening status, but cannot get the file
