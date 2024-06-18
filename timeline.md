@@ -2,7 +2,17 @@
 
 - Try running LAMP Stack with newest libc
   - `bind` / `connect` failed due to ownership issues
+  - Solved by moving out variables
 
+- Real FD too large
+  - LAMP Stack will auto change to use `epoll` / `poll` when FD >= 1024. The process limitaiton is
+
+```
+@(1:248) $ ulimit -n
+1048576
+```
+    But in RawPOSIX, LAMP Stack didn't known the real fd, so it won't change to use `epoll` or `poll` when using `select`, and will cause `libc::FD_SET` fail.
+ 
 ## 6/16/2024 - 6/17/2024
 
 - Keep debugging the Nginx
