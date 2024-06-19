@@ -19,7 +19,7 @@
 
 ## `fcntl`
 
-- [ ] Return value for `F_GETOWN` and `F_SETOWN`
+- [x] Return value for `F_GETOWN` and `F_SETOWN`
 
 ## `bind` and `connect`
 
