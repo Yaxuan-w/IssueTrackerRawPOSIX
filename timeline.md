@@ -1,3 +1,11 @@
+## 6/20/2024
+
+- Talked with Nick and confirmed that lamp stack won't execute epoll/poll when dealing with large fds. He suspected that rawposix opened more fds than rustposix, and `close` might have incorrect behaviors.
+
+## 6/19/2024
+
+- Made python run in rawposix and met the large fd issue again
+
 ## 6/18/2024
 
 - Try running LAMP Stack with newest libc
@@ -11,7 +19,8 @@
 @(1:248) $ ulimit -n
 1048576
 ```
-    But in RawPOSIX, LAMP Stack didn't known the real fd, so it won't change to use `epoll` or `poll` when using `select`, and will cause `libc::FD_SET` fail.
+    
+But in RawPOSIX, LAMP Stack didn't known the real fd, so it won't change to use `epoll` or `poll` when using `select`, and will cause `libc::FD_SET` fail.
  
 ## 6/16/2024 - 6/17/2024
 
