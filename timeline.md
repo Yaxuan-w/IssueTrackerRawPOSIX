@@ -1,3 +1,8 @@
+## 6/25/2024
+
+- Suspect incorrect error handling: tested by change Err in FDTable to panic
+  - Analysis the printing msg and found actual used real fd should be really large... (bc kernel should pick the least unused one)
+
 ## 6/24/2024
 
 - Might be int overflow..?
