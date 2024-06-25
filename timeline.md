@@ -6,6 +6,32 @@
   - Found rawposix DO open more fds, root cause: close_virtual should close real fd in some case but rawposix didn't. Try to find the reason
   - The FDTable interface doesn't remove the reference count entry when performing a kernel close, resulting in the real file descriptor never being closed if it is used more than once.
 
+- Met `socket` with `BADADDR` error
+  - rawposix didn't handle error condition
+  - Not related to socket, related to `getpeername`
+
+```
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/workers/sync.py", line 134, in handle
+    req = six.next(parser)
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/http/parser.py", line 41, in __next__
+    self.mesg = self.mesg_class(self.cfg, self.unreader, self.req_count)
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/http/message.py", line 187, in __init__
+    super(Request, self).__init__(cfg, unreader)
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/http/message.py", line 54, in __init__
+    unused = self.parse(self.unreader)
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/http/message.py", line 236, in parse
+    self.headers = self.parse_headers(data[:idx])
+  File "/usr/local/lib/python2.7/site-packages/gunicorn/http/message.py", line 74, in parse_headers
+    remote_addr = self.unreader.sock.getpeername()
+  File "/usr/local/lib/python2.7/Lib/socket.py", line 224, in meth
+    return getattr(self._sock,name)(*args)
+error: [Errno 14] Bad address
+```
+
+  - type conversion is correct after modification, but still same error. 
+  - might caused by socket syscall not success..?
+
 ## 6/24/2024
 
 - Might be int overflow..?
