@@ -25,3 +25,7 @@
 
 - [x] Reason of failure of refinement of bind / connect
 - [ ] Refine `bind` / `connect`
+
+## `getpeername`
+
+- [ ] Add general test case for `getpeername` in lind testsuite
