@@ -1,3 +1,13 @@
+## 6/24/2024
+
+- Might be int overflow..?
+- Print out total open fd in rawposix: around 80 (should be good?
+- Try to print total open fd in rustposix:
+
+## 6/21/2024
+
+- Found some wierd performance about fd in rawposix, need more debugging.
+
 ## 6/20/2024
 
 - Talked with Nick and confirmed that lamp stack won't execute epoll/poll when dealing with large fds. He suspected that rawposix opened more fds than rustposix, and `close` might have incorrect behaviors.
