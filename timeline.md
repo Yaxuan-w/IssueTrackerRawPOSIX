@@ -2,6 +2,9 @@
 
 - Suspect incorrect error handling: tested by change Err in FDTable to panic
   - Analysis the printing msg and found actual used real fd should be really large... (bc kernel should pick the least unused one)
+  - Start testing with smaller test file (socketselect.c)
+  - Found rawposix DO open more fds, root cause: close_virtual should close real fd in some case but rawposix didn't. Try to find the reason
+  - The FDTable interface doesn't remove the reference count entry when performing a kernel close, resulting in the real file descriptor never being closed if it is used more than once.
 
 ## 6/24/2024
 
