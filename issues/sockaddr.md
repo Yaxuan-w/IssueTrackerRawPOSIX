@@ -1,5 +1,9 @@
 I currently initialized sockaddr with default Unix GenSockaddr, which has largest memory space. (which might cause error in getpeername)
 
+IPv4/IPv6 shouldn't have path field, which might cause problem
+
+We should do byte op instead of struct type check
+
 ---------------------------------------------
 
 In Linux, there are various sockaddr structures [link from Ubuntu]. After tracing down the postgres source code, I found that postgres uses sockaddr_storage [link from postgres] [link from postgres], which is cast to sockaddr when used [link from postgres]. The difference between sockaddr_storage and sockaddris the size. sockaddr_storage is designed to allocate enough memory to satisfy the memory requirements of all sockaddr types.

@@ -33,6 +33,7 @@ error: [Errno 14] Bad address
   - might caused by socket syscall not success..?
   - no, socket syscall success but getpeername failed in general test case (NEED TO ADD INTO TESTSUITE)
   - still consider type conversion
+  - FIXED!!! error is caused by incorrect argument when calling libc::getpeername lol
 
 ## 6/24/2024
 
