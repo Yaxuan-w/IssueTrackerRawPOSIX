@@ -36,3 +36,6 @@ Run Nginx:
 /home/lind/lind_project/tests/lamp_stack/profiling/run_lamp_nginx_only.sh
 ```
 
+Change python script:
+
+move 

@@ -1,3 +1,7 @@
+I currently initialized sockaddr with default Unix GenSockaddr, which has largest memory space. (which might cause error in getpeername)
+
+---------------------------------------------
+
 In Linux, there are various sockaddr structures [link from Ubuntu]. After tracing down the postgres source code, I found that postgres uses sockaddr_storage [link from postgres] [link from postgres], which is cast to sockaddr when used [link from postgres]. The difference between sockaddr_storage and sockaddris the size. sockaddr_storage is designed to allocate enough memory to satisfy the memory requirements of all sockaddr types.
 
 I also observed that syscalls like accept will receive sockaddr->family=0 with sock_len=128 from postgres for all types sockaddrs, making it impossible to determine the family based on size alone.

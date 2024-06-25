@@ -6,7 +6,7 @@
   - Found rawposix DO open more fds, root cause: close_virtual should close real fd in some case but rawposix didn't. Try to find the reason
   - The FDTable interface doesn't remove the reference count entry when performing a kernel close, resulting in the real file descriptor never being closed if it is used more than once.
 
-- Met `socket` with `BADADDR` error
+- Met `socket.py` with `BADADDR` error
   - rawposix didn't handle error condition
   - Not related to socket, related to `getpeername`
 
@@ -31,6 +31,8 @@ error: [Errno 14] Bad address
 
   - type conversion is correct after modification, but still same error. 
   - might caused by socket syscall not success..?
+  - no, socket syscall success but getpeername failed in general test case (NEED TO ADD INTO TESTSUITE)
+  - still consider type conversion
 
 ## 6/24/2024
 
