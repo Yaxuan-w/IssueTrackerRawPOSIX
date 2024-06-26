@@ -1,4 +1,6 @@
-## 6/25/2024
+## 6/26/2024
+
+## 6/25/2024 - LAMP Stack could run with RawPOSIX!!!
 
 - Suspect incorrect error handling: tested by change Err in FDTable to panic
   - Analysis the printing msg and found actual used real fd should be really large... (bc kernel should pick the least unused one)
