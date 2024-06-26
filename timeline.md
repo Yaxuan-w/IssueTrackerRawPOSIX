@@ -1,4 +1,6 @@
 ## 6/26/2024
+- Working on adding getpeername test to lind testsuite
+- Benchmarking rawposix with rustposix's experiment
 
 ## 6/25/2024 - LAMP Stack could run with RawPOSIX!!!
 
