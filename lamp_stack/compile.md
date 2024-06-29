@@ -38,4 +38,4 @@ Run Nginx:
 
 Change python script:
 
-move 
+Move  

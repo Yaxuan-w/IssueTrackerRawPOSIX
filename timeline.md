@@ -1,3 +1,10 @@
+## 6/29/2024
+- Try with newer version of fdtable
+
+## 6/27/2024
+- Met error when running benchmarks 
+- the error might caused by log file..? / caused by incorrect fdtable behavior..?
+
 ## 6/26/2024
 - Working on adding getpeername test to lind testsuite
 - Benchmarking rawposix with rustposix's experiment
