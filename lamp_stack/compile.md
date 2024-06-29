@@ -38,4 +38,10 @@ Run Nginx:
 
 Change python script:
 
-Move  
+Move from 
+
+`src/safeposix-rust/tmp/usr/local/lib/python2.7/lib-dynload/psycopg2/lib/`
+
+to
+
+`src/safeposix-rust/tmp/usr/local/lib/python2.7/lib-dynload/psycopg2/`

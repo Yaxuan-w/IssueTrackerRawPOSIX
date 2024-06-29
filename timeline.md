@@ -1,6 +1,37 @@
 ## 6/29/2024
 - Try with newer version of fdtable
 
+test with socketselect.c and met some weird outputs:
+
+```
+@(1:14) $ lind /socketselect.nexe
+
+executing: [sel_ldr -a -- "runnable-ld.so" --library-path "/lib/glibc" /socketselect.nexe]
+[218,2017537152:18:46:50.266644] BYPASSING ALL ACL CHECKS
+Waiting on select()...
+Hello message sent
+  Listening socket is readable
+  New incoming connection - 9
+Waiting on select()...
+  Descriptor 9 is readable
+  17 bytes received
+Hello from client
+  Connection closed
+Waiting on select()...
+  select() timed out.  End program.
+thread '<unnamed>' panicked at src/example_grates/dashmapvecglobal.rs:439:49:
+called `Option::unwrap()` on a `None` value
+stack backtrace:
+```
+
+- The program will met the same error after the execution finished 
+- Suspect error in fdtable
+- FIXED the fdtable issuse
+  - Cause: The function close_virtualfd might not be removing the entry from FDTABLE because the cloned myfdrow is not being updated back into FDTABLE. When we clone myfdrow, we are working on a separate copy of the data. Any changes made to myfdrow will not affect the original data in FDTABLE. To ensure that the changes are reflected in FDTABLE, you should update FDTABLE after modifying myfdrow.
+  - Fix: Add `FDTABLE.insert(cageid, myfdrow.clone());` after setting data to `None`
+
+- LAMP Stack now works smoothly!!!!
+
 ## 6/27/2024
 - Met error when running benchmarks 
 - the error might caused by log file..? / caused by incorrect fdtable behavior..?
