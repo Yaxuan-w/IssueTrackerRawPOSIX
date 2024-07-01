@@ -1,4 +1,10 @@
+## 7/1/2024
+
+- Generated nginx-only test diagram
+- Need to redo experiment
+
 ## 6/29/2024
+
 - Try with newer version of fdtable
 
 test with socketselect.c and met some weird outputs:
@@ -31,12 +37,15 @@ stack backtrace:
   - Fix: Add `FDTABLE.insert(cageid, myfdrow.clone());` after setting data to `None`
 
 - LAMP Stack now works smoothly!!!!
+- Generated full LAMP Stack diagram
 
 ## 6/27/2024
+
 - Met error when running benchmarks 
 - the error might caused by log file..? / caused by incorrect fdtable behavior..?
 
 ## 6/26/2024
+
 - Working on adding getpeername test to lind testsuite
 - Benchmarking rawposix with rustposix's experiment
 

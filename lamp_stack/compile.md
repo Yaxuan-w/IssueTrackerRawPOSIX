@@ -30,6 +30,11 @@ sudo chmod 666 /home/lind/lind_project/src/safeposix-rust/tmp/dev/urandom
 
 Load LAMP Stack:
 
+```
+/home/lind/lind_project/src/scripts/lamp/load_lamp.sh
+/home/lind/lind_project/tests/lamp_stack/profiling/flask_app/load.sh
+```
+
 Run Nginx:
 
 ```

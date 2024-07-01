@@ -2,6 +2,8 @@
 
 ## LAMP Stack
 
+Change variables in `app.py`
+
 ## NGINX-ONLY
 
 Generated related files (in `/home/lind/lind_project/tests/lamp_stack/profiling/flask_app`):
@@ -49,4 +51,7 @@ Run command line on second terminal:
 ```
 wrk -t1 -c1 -d30 --timeout 30 http://localhost:80/static.html
 ```
+
+## PGBENCH
+
 
