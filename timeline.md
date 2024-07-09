@@ -1,3 +1,13 @@
+## 7/9/2024
+
+- Scripted setup / clear stage for rawposix
+- Redid experiment
+- rawposix and native will stay hung in pgsql initialization but initialization will finish normally - don't know reason
+
+## 7/8/2024
+
+- Tried with new server
+
 ## 7/1/2024
 
 - Generated nginx-only test diagram

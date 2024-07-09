@@ -39,4 +39,3 @@ pip install jinja2
 ```
 python2.7 gen_static_html.py -s 17 -o /home/lind/lind_project/src/safeposix-rust/tmp/static.html
 ```
-
