@@ -44,6 +44,8 @@ Container name: `native-pg`
 8MB: static_html_file_size_in_mbs=23
 
 32MB: static_html_file_size_in_mbs=25
+
+128MB: static_html_file_size_in_mbs=27
 ```
 
 ### RawPOSIX:
@@ -90,7 +92,15 @@ Container name: `native-nginx`
 
 First terminal:
 
+```sh
+./run_native.sh static_html_file_size_in_mbs
+```
+
 Second terminal:
+
+```sh
+wrk -t1 -c1 -d30 --timeout 30 http://localhost:80/home/lind/lind_project/static.html
+```
 
 ## LAMP Stack
 
