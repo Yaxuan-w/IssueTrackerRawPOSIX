@@ -1,3 +1,17 @@
+## 8/7/2024
+
+- Submitted PR for fdtables fix which including fixes and tests
+- Listed ToDos and talked with Nick
+- Learned and implemented tests for test#1 (named pipes), generated scripts, and ran locally
+
+## 8/6/2024
+
+- Discussed with Rick, Justin, and Nick about following test setups
+
+## 8/5/2024
+
+- Porting the RustPOSIX test suite into RawPOSIX, fixing bugs in both tests and RawPOSIX, and documenting fixes
+
 ## 7/9/2024
 
 - Scripted setup / clear stage for rawposix
