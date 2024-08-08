@@ -1,8 +1,14 @@
+## 8/8/2024
+
+- Finished runtime scripts and modifications to tests (RawPOSIX with regular pipe vs rawposix w named pipe vs rawposix 2 process with named pipe)
+- Fixed close error returns issue in fdtables (NEED TO SUBMIT PR) - errno should be EBADF instead of EBADFD
+
 ## 8/7/2024
 
 - Submitted PR for fdtables fix which including fixes and tests
 - Listed ToDos and talked with Nick
 - Learned and implemented tests for test#1 (named pipes), generated scripts, and ran locally
+- Gave David and Vlad instructions on how to fix test suite
 
 ## 8/6/2024
 
