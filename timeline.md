@@ -1,3 +1,7 @@
+## 8/9/2024
+
+- Finished setups of rawposix r/w tests and started running. Wait tmr to see the results
+
 ## 8/8/2024
 
 - Finished runtime scripts and modifications to tests (RawPOSIX with regular pipe vs rawposix w named pipe vs rawposix 2 process with named pipe)
