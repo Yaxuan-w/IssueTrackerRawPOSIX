@@ -1,3 +1,7 @@
+## 8/10/2024
+
+- Get results
+
 ## 8/9/2024
 
 - Finished setups of rawposix r/w tests and started running. Wait tmr to see the results
