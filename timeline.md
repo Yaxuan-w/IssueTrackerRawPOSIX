@@ -1,3 +1,7 @@
+## 8/11/2024
+
+- Finished setups for native and rustposix r/w tests and started running.
+
 ## 8/10/2024
 
 - Get results
