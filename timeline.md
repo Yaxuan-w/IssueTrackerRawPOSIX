@@ -1,6 +1,7 @@
 ## 8/12/2024
 
 - Get results
+- Talked with Nick about optimizing tests. We decided to record start time from write-end and end time from read-end then calculating difference to get the runtime results in order to save time. I finished changing related python files and runtime scripts, pushed to remote.
 
 ## 8/11/2024
 
