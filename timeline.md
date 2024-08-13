@@ -1,3 +1,15 @@
+## 8/13/2024
+
+- Modified test files for rawposix / lind / unsafe. Modified scripts for rawposix/lind/unsafe. Then found that we should use gcc4 for native and unsafe. 
+- Finished: 
+  - setup script
+  - change “user” to “unsafe”
+  - change compilation file to use gcc-4 for both native and unsafe
+  - make unsafe using -O3
+  - merge 3 tests file into 1 (merge stderr&stdout)
+  - merge 3 runtime scripts into 1
+  - move pipe-cages.c to total_runtime/scripts/unsafe-pipe.c
+
 ## 8/12/2024
 
 - Get results
