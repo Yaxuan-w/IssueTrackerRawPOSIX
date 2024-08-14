@@ -1,3 +1,9 @@
+## 8/14/2024
+
+- Older verison scripts works normally in rawposix / lind / native / unsafe. New scripts will encounter error when generating result files, because we want to extract the platform from user input. When we input command line, it will become impossible to distinguish if the platform is rawposix or normal lind, since they are using same command line. Considering the time caused by changing the script to automatically handle those situations, I decided to use older one. The difference of lines of code between those two is quite small, so I don't think it worth spending time.
+- Changed to use older version of runtime scripts. Running tests on server2 with different count sizes to see the time variances. 
+- Finished rawposix named pipe tests short version (1GB) for both two processes and single process. 
+
 ## 8/13/2024
 
 - Modified test files for rawposix / lind / unsafe. Modified scripts for rawposix/lind/unsafe. Then found that we should use gcc4 for native and unsafe. 
@@ -9,6 +15,12 @@
   - merge 3 tests file into 1 (merge stderr&stdout)
   - merge 3 runtime scripts into 1
   - move pipe-cages.c to total_runtime/scripts/unsafe-pipe.c
+- Finished -c=5 tests for rawposix / lind / unsafe / native and generated results. Talked with Nick and found that there's some huge error bars, and we decided to increase times of runs.
+- Finished:
+  - make clean file
+  - create separate scripts for compilation
+- Start running -c=50 tests for lind / unsafe / native
+- New scripts didn't get response from rawposix
 
 ## 8/12/2024
 
