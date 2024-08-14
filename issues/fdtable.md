@@ -32,3 +32,7 @@ The way I changed the stack limits:
 ```
 ulimit -s unlimit
 ```
+
+## FIXED!!
+
+This bug has been fixed by Nick. 

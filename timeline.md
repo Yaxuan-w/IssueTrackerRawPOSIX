@@ -1,6 +1,7 @@
 ## 8/14/2024
 
-- Older verison scripts works normally in rawposix / lind / native / unsafe. New scripts will encounter error when generating result files, because we want to extract the platform from user input. When we input command line, it will become impossible to distinguish if the platform is rawposix or normal lind, since they are using same command line. Considering the time caused by changing the script to automatically handle those situations, I decided to use older one. The difference of lines of code between those two is quite small, so I don't think it worth spending time.
+- Fixed the older version script's bug. The bug is caused by passing `x` instead of real number to execute. 
+- Older verison scripts works normally in rawposix / lind / native / unsafe. New scripts will encounter error when generating result files, because we want to extract the platform from user input. When we input command line, it will become impossible to distinguish if the platform is rawposix or normal lind, since they are using same command line. 
 - Changed to use older version of runtime scripts. Running tests on server2 with different count sizes to see the time variances. 
 - Finished rawposix named pipe tests short version (1GB) for both two processes and single process. 
 
