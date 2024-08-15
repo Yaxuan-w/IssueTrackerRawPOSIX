@@ -1,3 +1,8 @@
+## 8/15/2024
+
+- Finished rawposix normal pipe testing and generated graphs.
+- Reimplemented scripts for rawposix named pipe and started testing
+
 ## 8/14/2024
 
 - Fixed the older version script's bug. The bug is caused by passing `x` instead of real number to execute. 
