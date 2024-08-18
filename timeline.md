@@ -1,3 +1,13 @@
+## 8/18/2024
+
+- Finished named pipe - rawposix tests and pushed to repo
+- Generated graphs and pushed to repo too
+
+## 8/16/2024
+
+- Rawposix single process named pipe tests stalled. Looking at the reason
+- Met with Rick and talked about next steps
+
 ## 8/15/2024
 
 - Finished rawposix normal pipe testing and generated graphs.
