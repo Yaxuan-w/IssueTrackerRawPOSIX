@@ -1,3 +1,12 @@
+## 8/19/2024
+
+- Finished RawPOSIX named pipe comparison graphs and pushed to remote. Including:
+  - The combination of graphs of all cases (normal pipe / single named pipe / multi named pipe)
+  - The comparison of rawposix single named pipe / multi named pipe / normal pipe
+  Seems named pipe has similiar performance with normal pipe in RawPOSIX
+- Fixed the new line issue in PR
+- Wrote test case for SFI penalty test. 
+
 ## 8/18/2024
 
 - Finished named pipe - rawposix tests and pushed to repo
@@ -7,10 +16,11 @@
 
 - Rawposix single process named pipe tests stalled. Looking at the reason
 - Met with Rick and talked about next steps
+- Submitted PR to replace original pipe scripts
 
 ## 8/15/2024
 
-- Finished rawposix normal pipe testing and generated graphs.
+- Finished rawposix normal pipe testing and generated graphs
 - Reimplemented scripts for rawposix named pipe and started testing
 
 ## 8/14/2024
