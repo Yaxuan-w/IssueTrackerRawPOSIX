@@ -6,6 +6,11 @@
   Seems named pipe has similiar performance with normal pipe in RawPOSIX
 - Fixed the new line issue in PR
 - Wrote test case for SFI penalty test. 
+  - In default optimization level, lind has around 7% SFI penalty which aligns with nacl's paper
+  - In O1 optimization level, lind has similiar total runtime with native linux 
+  - In O3 optimization level, lind is faster than native linux on both server2 and server3. I found in paper “google-native client-2” page 8
+> This suggests out-of-order execution can help hide the overhead of SFI, although other factors may also contribute, including much smaller caches on the Atom part and the fact that GCC’s 64-bit code generation may be biased towards the Core 2 microarchitecture
+  - I checked the CPU type for server3 (`Intel(R) Xeon(R) Gold 5416S`) and server2 (`12th Gen Intel(R) Core(TM) i9-12900K`). Both of them belongs to out-of-order CPU. I’m guessing that O3's optimization strategy combined with the out-of-order CPU type causes lind to run faster?
 
 ## 8/18/2024
 

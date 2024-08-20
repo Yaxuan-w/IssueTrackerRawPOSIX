@@ -14,7 +14,7 @@ long long gettimens() {
 
 unsigned long long fibonacci(int n) {
     if (n <= 1) return n;
-    unsigned long long a = 0, b = 1, c;
+    volatile  unsigned long long a = 0, b = 1, c;
     for (int i = 2; i <= n; i++) {
         c = a + b;
         a = b;
@@ -29,14 +29,14 @@ int main() {
     long long start_time = gettimens();
 
     for (int i = 0; i < LOOP_COUNT; i++) {
-        sum += fibonacci(10); 
+        sum += fibonacci(1000); 
     }
     
     long long end_time = gettimens();
-    long long average_time = (end_time - start_time) / LOOP_COUNT;
+    long long total_time = (end_time - start_time) / 1000000;
     fprintf(stderr, "start: %lld\n", start_time);
     fprintf(stderr, "end: %lld\n", end_time);
-    fprintf(stderr, "average: %lld\n", average_time);
+    fprintf(stderr, "total: %lld\n", total_time);
     fflush(stderr);
 
     return 0;
