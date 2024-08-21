@@ -1,3 +1,18 @@
+## 8/21/2024
+
+- Finished
+  - UDS:
+    - C file: Print before we call parent, print after child
+    - Combine different python file into one
+    - Use gcc-4 for native (standardized)
+  - getpid()
+  - close() on invalid fd
+  - comparing write() to stdout
+  
+## 8/20/2024
+
+- Talked with Rick and Nick about next steps and data analysis.
+
 ## 8/19/2024
 
 - Finished RawPOSIX named pipe comparison graphs and pushed to remote. Including:
