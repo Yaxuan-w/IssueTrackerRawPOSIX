@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
     long long total_time = end_time - start_time;
     // Average
     long long average_time = total_time/LOOP_COUNT;
-    printf("%d getpid() calls, average time %lld ns\n", LOOP_COUNT, average_time);
+    printf("%d write() calls, average time %lld ns\n", LOOP_COUNT, average_time);
     fflush(NULL);
     
 }

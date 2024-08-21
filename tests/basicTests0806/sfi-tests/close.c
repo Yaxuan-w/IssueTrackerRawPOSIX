@@ -13,13 +13,13 @@ long long gettimens() {
 }
 
 int main(int argc, char *argv[]) {
-    int fd;
+    int fd = -3;
     long long start_time = gettimens();
 
     for(int i = 0; i < LOOP_COUNT; i++) {
         close(fd);
     }
-    
+
     // Get sum of time
     long long end_time = gettimens();
     long long total_time = end_time - start_time;
