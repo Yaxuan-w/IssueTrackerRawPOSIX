@@ -1,0 +1,207 @@
+Running with: -p perf stat lind /bin/bash /pipescript.sh -w 16 -r x -c 1
+Write buffer: 16, Read buffer: 4
+Average runtime: 17859.425048
+Context switching times: [117]
+Write buffer: 16, Read buffer: 6
+Average runtime: 4054.070119
+Context switching times: [80]
+Write buffer: 16, Read buffer: 8
+Average runtime: 1318.406555
+Context switching times: [127]
+Write buffer: 16, Read buffer: 10
+Average runtime: 396.314902
+Context switching times: [87]
+Write buffer: 16, Read buffer: 12
+Average runtime: 128.102438
+Context switching times: [64]
+Write buffer: 16, Read buffer: 14
+Average runtime: 126.840506
+Context switching times: [52]
+Write buffer: 16, Read buffer: 16
+Average runtime: 206.416461
+Context switching times: [68]
+
+Running with: -p perf stat lind /bin/bash /pipescript.sh -w x -r x -c 1
+Write buffer: 4, Read buffer: 4
+Average runtime: 32721.121467
+Context switching times: [217]
+Write buffer: 6, Read buffer: 6
+Average runtime: 5653.347344
+Context switching times: [103]
+Write buffer: 8, Read buffer: 8
+Average runtime: 1761.372058
+Context switching times: [155]
+Write buffer: 10, Read buffer: 10
+Average runtime: 596.366012
+Context switching times: [40]
+Write buffer: 12, Read buffer: 12
+Average runtime: 228.805098
+Context switching times: [55]
+Write buffer: 14, Read buffer: 14
+Average runtime: 139.425086
+Context switching times: [59]
+Write buffer: 16, Read buffer: 16
+Average runtime: 203.177851
+Context switching times: [46]
+
+Running with: -p perf stat lind /bin/bash /pipescript.sh -w x -r 16 -c 1
+Write buffer: 4, Read buffer: 16
+Average runtime: 23548.70399
+Context switching times: [155]
+Write buffer: 6, Read buffer: 16
+Average runtime: 6496.335751
+Context switching times: [93]
+Write buffer: 8, Read buffer: 16
+Average runtime: 1626.348724
+Context switching times: [50]
+Write buffer: 10, Read buffer: 16
+Average runtime: 596.1969
+Context switching times: [64]
+Write buffer: 12, Read buffer: 16
+Average runtime: 238.112025
+Context switching times: [76]
+Write buffer: 14, Read buffer: 16
+Average runtime: 140.234355
+Context switching times: [53]
+Write buffer: 16, Read buffer: 16
+Average runtime: 211.620367
+Context switching times: [40]
+
+Running with: -p perf stat /bin/bash scripts/pipescript.sh -w 16 -r x -c 1
+Write buffer: 16, Read buffer: 4
+Average runtime: 13759.538761
+Context switching times: [1924864]
+Write buffer: 16, Read buffer: 6
+Average runtime: 3287.750456
+Context switching times: [422572]
+Write buffer: 16, Read buffer: 8
+Average runtime: 1134.697683
+Context switching times: [128829]
+Write buffer: 16, Read buffer: 10
+Average runtime: 480.622785
+Context switching times: [42443]
+Write buffer: 16, Read buffer: 12
+Average runtime: 343.190953
+Context switching times: [21062]
+Write buffer: 16, Read buffer: 14
+Average runtime: 267.970215
+Context switching times: [13085]
+Write buffer: 16, Read buffer: 16
+Average runtime: 749.037354
+Context switching times: [32770]
+
+Running with: -p perf stat /bin/bash scripts/pipescript.sh -w x -r x -c 1
+Write buffer: 4, Read buffer: 4
+Average runtime: 48832.739663
+Context switching times: [1028]
+Write buffer: 6, Read buffer: 6
+Average runtime: 9051.9665
+Context switching times: [9409]
+Write buffer: 8, Read buffer: 8
+Average runtime: 3531.509451
+Context switching times: [58]
+Write buffer: 10, Read buffer: 10
+Average runtime: 1139.96986
+Context switching times: [56]
+Write buffer: 12, Read buffer: 12
+Average runtime: 412.982805
+Context switching times: [13]
+Write buffer: 14, Read buffer: 14
+Average runtime: 373.649144
+Context switching times: [35]
+Write buffer: 16, Read buffer: 16
+Average runtime: 743.1676
+Context switching times: [32725]
+
+Running with: -p perf stat /bin/bash scripts/pipescript.sh -w x -r 16 -c 1
+Write buffer: 4, Read buffer: 16
+Average runtime: 62414.569231
+Context switching times: [6089]
+Write buffer: 6, Read buffer: 16
+Average runtime: 16705.63748
+Context switching times: [1918]
+Write buffer: 8, Read buffer: 16
+Average runtime: 4118.581666
+Context switching times: [537]
+Write buffer: 10, Read buffer: 16
+Average runtime: 1255.300226
+Context switching times: [151]
+Write buffer: 12, Read buffer: 16
+Average runtime: 486.976346
+Context switching times: [91]
+Write buffer: 14, Read buffer: 16
+Average runtime: 317.144563
+Context switching times: [39]
+Write buffer: 16, Read buffer: 16
+Average runtime: 595.50878
+Context switching times: [24862]
+
+Running with: -p perf stat scripts/unsafe-pipe -w 16 -r x -c 1
+Write buffer: 16, Read buffer: 4
+Average runtime: 14231.527367
+Context switching times: [65]
+Write buffer: 16, Read buffer: 6
+Average runtime: 3638.500714
+Context switching times: [15]
+Write buffer: 16, Read buffer: 8
+Average runtime: 601.302818
+Context switching times: [3]
+Write buffer: 16, Read buffer: 10
+Average runtime: 163.547627
+Context switching times: [3]
+Write buffer: 16, Read buffer: 12
+Average runtime: 118.356199
+Context switching times: [2]
+Write buffer: 16, Read buffer: 14
+Average runtime: 118.59848
+Context switching times: [2]
+Write buffer: 16, Read buffer: 16
+Average runtime: 205.315929
+Context switching times: [2]
+
+Running with: -p perf stat scripts/unsafe-pipe -w x -r x -c 1
+Write buffer: 4, Read buffer: 4
+Average runtime: 20437.634527
+Context switching times: [1132]
+Write buffer: 6, Read buffer: 6
+Average runtime: 5083.844778
+Context switching times: [14]
+Write buffer: 8, Read buffer: 8
+Average runtime: 1773.363646
+Context switching times: [6]
+Write buffer: 10, Read buffer: 10
+Average runtime: 629.228822
+Context switching times: [3]
+Write buffer: 12, Read buffer: 12
+Average runtime: 234.427856
+Context switching times: [3]
+Write buffer: 14, Read buffer: 14
+Average runtime: 140.115911
+Context switching times: [3]
+Write buffer: 16, Read buffer: 16
+Average runtime: 198.316798
+Context switching times: [4]
+
+Running with: -p perf stat scripts/unsafe-pipe -w x -r 16 -c 1
+Write buffer: 4, Read buffer: 16
+Average runtime: 15900.592753
+Context switching times: [47]
+Write buffer: 6, Read buffer: 16
+Average runtime: 4274.839081
+Context switching times: [11]
+Write buffer: 8, Read buffer: 16
+Average runtime: 1402.225602
+Context switching times: [6]
+Write buffer: 10, Read buffer: 16
+Average runtime: 577.509797
+Context switching times: [3]
+Write buffer: 12, Read buffer: 16
+Average runtime: 233.995127
+Context switching times: [3]
+Write buffer: 14, Read buffer: 16
+Average runtime: 134.228925
+Context switching times: [1]
+Write buffer: 16, Read buffer: 16
+Average runtime: 205.929487
+Context switching times: [2]
+

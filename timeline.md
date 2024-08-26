@@ -1,3 +1,21 @@
+## 8/26/2024
+
+- Finished 
+  - Redid write() tests -- redirect native output to actual file
+  - Implemented new one to use perf stat in all config of pipe tests and extract context time
+  - Graphs
+
+## 8/23/2024
+
+- Finished:
+  - run 16_x on both server2 and 3, put results into spreadsheet
+  - combine 3 graphs (syscall) into just one
+  - graph: write syscall w/ varied buffer size 2^0, 2^4, 2^8, 2^12, 2^16
+
+## 8/22/2024
+
+- Finished graphing write results
+
 ## 8/21/2024
 
 - Finished
