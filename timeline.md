@@ -1,3 +1,10 @@
+## 9/9/2024
+
+- Indirect getpid() syscall for native
+  - Wrote test case and regenerate graph with new native data and old lind data
+- write() 11 runs and generated graph with error bars 
+- Re-generated lock graphs with raw time data
+
 ## 9/7/2024
 
 - Re-run close() tests:
@@ -6,7 +13,7 @@ I got similar results this time, and nothing weird happened.
   - Configure: gcc-4/x86_64-nacl-gcc close.c -o close.nexe -std=gnu99 -lrt -O3
   - Test results: https://github.com/Lind-Project/lind-ipc-data/tree/main/micro-benchmarks/sfi/data-0907
 
-- Re-run write():
+- Re-run write() tests:
 similar results this time
   - Test case: https://github.com/Yaxuan-w/IssueTrackerRawPOSIX/blob/main/tests/basicTests0806/sfi-tests/write.c
   - Configure:
