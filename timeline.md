@@ -1,3 +1,48 @@
+## 9/7/2024
+
+- Re-run close() tests:
+I got similar results this time, and nothing weird happened.
+  - Test case: https://github.com/Yaxuan-w/IssueTrackerRawPOSIX/blob/main/tests/basicTests0806/sfi-tests/close.c
+  - Configure: gcc-4/x86_64-nacl-gcc close.c -o close.nexe -std=gnu99 -lrt -O3
+  - Test results: https://github.com/Lind-Project/lind-ipc-data/tree/main/micro-benchmarks/sfi/data-0907
+
+- Re-run write():
+similar results this time
+  - Test case: https://github.com/Yaxuan-w/IssueTrackerRawPOSIX/blob/main/tests/basicTests0806/sfi-tests/write.c
+  - Configure:
+    - Native client in branch io-novmcheck
+    - Compiled by gcc-4/x86_64-nacl-gcc write.c -o write.nexe -O3 -std=gnu99 -lrt
+  - Test results: https://github.com/Lind-Project/lind-ipc-data/tree/main/micro-benchmarks/sfi/data-0907
+
+- Pipe tests with same format as the uds test:
+I made a new test thats basically the exact same format as the uds test. When generating graph, I set native-uds as 1, and I noticed weird results for native with buffer size 2^16. I re-ran the tests but got the similar results…
+  - Test case: https://github.com/Lind-Project/lind_project/blob/pipe-use-udstest/tests/ipc_performance/total_runtime_2/scripts/pipe_write_read.c
+  - Configure: All repos use develop branch
+  - Test results and graphs: https://github.com/Lind-Project/lind-ipc-data/tree/main/micro-benchmarks/pipe/pipe-uds-nat-lind/data-0907
+
+- PR for some minor fixes:
+I added a README file for gcc-4.4.3 inside its folder. Changed file permissions for scripts inside pipe/uds test folder.
+  - PR link: https://github.com/Lind-Project/lind_project/pull/387
+
+## 9/3/2024
+
+- Generated cs graphs and slides templates
+- UDS
+
+
+## 9/2/2024
+
+- Finished
+  - 
+
+## 8/27/2024
+
+- Finished
+  - Redid write tests
+  - Redid context switching tests
+  - Test SPHERE
+  - Read master thesis
+
 ## 8/26/2024
 
 - Finished 
