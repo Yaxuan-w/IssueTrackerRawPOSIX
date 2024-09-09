@@ -6,8 +6,6 @@
 #include <string.h>
 #include <sys/socket.h>
 
-#define LOOP_COUNT 1000000
-
 long long gettimens() {
     struct timespec tp;
     clock_gettime(CLOCK_MONOTONIC, &tp);
@@ -16,11 +14,12 @@ long long gettimens() {
 
 int main(int argc, char *argv[]) {
     if (argc != 2) {
-        fprintf(stderr, "Usage: %s <buffer_size>\n", argv[0]);
+        fprintf(stderr, "Usage: %s <buffer_size> <loop_count>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
 
     int buf_size = atoi(argv[1]);
+    int loop_count = atoi(argv[2]);
     char *buffer = (char *)malloc(buf_size);
     if (!buffer) {
         perror("Failed to allocate buffer");
@@ -38,7 +37,7 @@ int main(int argc, char *argv[]) {
 
     long long start_time = gettimens();
 
-    for (int i = 0; i < LOOP_COUNT; i++) {
+    for (int i = 0; i < loop_count; i++) {
         if (send(sockfd[0], buffer, buf_size, 0) == -1) {
             perror("send");
             free(buffer);
@@ -50,9 +49,9 @@ int main(int argc, char *argv[]) {
 
     long long end_time = gettimens();
     long long total_time = end_time - start_time;
-    long long average_time = total_time / LOOP_COUNT;
+    long long average_time = total_time / loop_count;
 
-    fprintf(stderr, "\nBuffer size %d bytes: %d send() calls, average time %lld ns\n", buf_size, LOOP_COUNT, average_time);
+    fprintf(stderr, "\nBuffer size %d bytes: %d send() calls, average time %lld ns\n", buf_size, loop_count, average_time);
     fflush(NULL);
 
     free(buffer);
