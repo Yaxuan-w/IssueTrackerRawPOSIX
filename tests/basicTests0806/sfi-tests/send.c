@@ -13,7 +13,7 @@ long long gettimens() {
 }
 
 int main(int argc, char *argv[]) {
-    if (argc != 2) {
+    if (argc != 3) {
         fprintf(stderr, "Usage: %s <buffer_size> <loop_count>\n", argv[0]);
         exit(EXIT_FAILURE);
     }
