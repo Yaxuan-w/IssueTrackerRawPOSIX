@@ -1,9 +1,17 @@
+## 9/10/2024
+
+- Debugging gcc-4 on ubuntu-lind
+- Wrote scripts to get things running on sphere with only one bottom
+- Compiled gcc-4 on lind-ubuntu
+- Fixed minor bugs in IPC test to run on both lind-ubuntu and lind-archlinux, generated overview script, and submitted PR
+
 ## 9/9/2024
 
 - Indirect getpid() syscall for native
   - Wrote test case and regenerate graph with new native data and old lind data
 - write() 11 runs and generated graph with error bars 
 - Re-generated lock graphs with raw time data
+- Implemented send() test case
 
 ## 9/7/2024
 
