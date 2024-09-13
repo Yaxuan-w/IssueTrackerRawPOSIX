@@ -1,3 +1,7 @@
+## 9/11/2024
+
+- Opened 2 Issues in RawPOSIX repo to describe and track tasks for current RawPOSIX
+
 ## 9/10/2024
 
 - Debugging gcc-4 on ubuntu-lind
