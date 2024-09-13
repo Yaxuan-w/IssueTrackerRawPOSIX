@@ -1,3 +1,19 @@
+## 9/13/2024
+
+- The issue occurred because the Ubuntu container had multiple versions of GCC installed (gcc and gcc-7). When compiling GCC-4 in the Sphere, gcc-7 was detected and used for compilation, but on the server, gcc (version 9) was automatically used for testing. This led to failures in modifying the Makefile to pass the necessary flags, resulting in gcc compilation failure. 
+
+- I also found several typos in gcc compilation scripts. Accidentally those typos fix problem from another way so the compilation successes when I tested on local server. 
+
+- To run benchmark on sphere, I encountered errors due to lacking source files for unsafe code. @Yashaswi Makula might need to keep files in /home/lind/lind_project/tests/native-rustposix/ when generating sphere image.
+
+- I have fixed the issue and will submit PR. I have tested gcc compilation script in Sphere from scratch, and it should work without any problems now.
+
+## 9/12/2024
+
+- Wrote test case and ran UDS tests
+    - pong - alternating send/recv 2kb in a way that read and write are not overlapping
+    - graphed results and pushed to remote
+
 ## 9/11/2024
 
 - Opened 2 Issues in RawPOSIX repo to describe and track tasks for current RawPOSIX
