@@ -21,7 +21,7 @@
 ## 9/10/2024
 
 - Debugging gcc-4 on ubuntu-lind
-- Wrote scripts to get things running on sphere with only one bottom
+- Wrote scripts to get things running on sphere with only one botton
 - Compiled gcc-4 on lind-ubuntu
 - Fixed minor bugs in IPC test to run on both lind-ubuntu and lind-archlinux, generated overview script, and submitted PR
 
