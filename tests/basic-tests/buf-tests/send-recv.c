@@ -9,6 +9,7 @@
 #include <sys/mman.h>
 
 #define GB (1 << 30)
+#define CHUNK_SIZE 65536
 
 long long gettimens() {
     struct timespec tp;
@@ -16,80 +17,64 @@ long long gettimens() {
     return (long long)tp.tv_sec * 1000000000LL + tp.tv_nsec;
 }
 
-void parent(int socket, int buf_size, sem_t *semaphore) {
-    char *send_buf = (char *)malloc(buf_size);
-    char *recv_buf = (char *)malloc(buf_size);
+void parent(int socket, sem_t *semaphore) {
+    char *buf = (char *)malloc(CHUNK_SIZE);
 
-    memset(send_buf, 'a', buf_size);
+    memset(buf, 'a', CHUNK_SIZE);
     
     sem_wait(semaphore);
 
     fprintf(stderr, "Starts sending: %lld\n", gettimens());
     fflush(stderr);
 
-    for (int i = 0; i < GB / buf_size; ++i) {
-        if (send(socket, send_buf, buf_size, 0) == -1) {
+    for (int i = 0; i < GB / 65536; ++i) {
+        if (send(socket, buf, CHUNK_SIZE, 0) == -1) {
             perror("Send");
             exit(1);
         }
     }
-    for (int j = 0; j < GB / buf_size; ++j) {
-        int total_received = 0;
-        while (total_received < buf_size) {
-            int received = recv(socket, recv_buf + total_received, buf_size - total_received, 0);
-            if (received == -1) {
-                perror("Recv");
-                exit(1);
-            }
-            total_received += received;
+
+    for (int j = 0; j < GB / 65536; ++j) {
+        if (recv(socket, buf, CHUNK_SIZE, 0) == -1) {
+            perror("Recv");
+            exit(1);
         }
     }
-
-    
 
     fprintf(stderr, "Ends receiving: %lld\n", gettimens());
     fflush(stderr);
 
-    free(send_buf);
-    free(recv_buf);
+    free(buf);
 }
 
-void child(int socket, int buf_size, sem_t *semaphore) {
-    char *send_buf = (char *)malloc(buf_size);
-    char *recv_buf = (char *)malloc(buf_size);
+void child(int socket, sem_t *semaphore) {
+    char *buf = (char *)malloc(CHUNK_SIZE);
 
-    memset(send_buf, 'b', buf_size);
+    memset(buf, 'b', CHUNK_SIZE);
 
     if (sem_post(semaphore) < 0) {
         perror("sem_post");
         exit(1);
     }
 
-    for (int x = 0; x < GB / buf_size; ++x) {
-        int total_received = 0;
-        while (total_received < buf_size) {
-            int received = recv(socket, recv_buf + total_received, buf_size - total_received, 0);
-            if (received == -1)
-            {
-                perror("Recv");
-                exit(1);
-            }
-            total_received += received;
+    for (int x = 0; x < GB / 65536; ++x) {
+        if (recv(socket, buf, CHUNK_SIZE, 0) == -1) {
+            perror("Recv");
+            exit(1);
         }
     }
-    for (int y = 0; y < GB / buf_size; ++y) {
-        if (send(socket, send_buf, buf_size, 0) == -1) {
+
+    for (int y = 0; y < GB / 65536; ++y) {
+        if (send(socket, buf, CHUNK_SIZE, 0) == -1) {
             perror("Send");
             exit(1);
         }
     }
-    free(send_buf);
-    free(recv_buf);
+
+    free(buf);
 }
 
 int main(int argc, char *argv[]) {
-    int buf_size = 1 << 16;
-
     int sockets[2];
     pid_t pid;
 
@@ -115,12 +100,12 @@ int main(int argc, char *argv[]) {
     if (pid == 0) {
         // Child process
         close(sockets[1]);
-        child(sockets[0], buf_size, semaphore);
+        child(sockets[0], semaphore);
         close(sockets[0]);
     } else {
         // Parent process
         close(sockets[0]);
-        parent(sockets[1], buf_size, semaphore);
+        parent(sockets[1], semaphore);
         close(sockets[1]);
     }
 
