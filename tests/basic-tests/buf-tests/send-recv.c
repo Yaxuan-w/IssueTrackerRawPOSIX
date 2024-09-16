@@ -32,9 +32,7 @@ void parent(int socket, sem_t *semaphore) {
             perror("Send");
             exit(1);
         }
-    }
-
-    for (int j = 0; j < GB / 65536; ++j) {
+        
         if (recv(socket, buf, CHUNK_SIZE, 0) == -1) {
             perror("Recv");
             exit(1);
@@ -62,9 +60,7 @@ void child(int socket, sem_t *semaphore) {
             perror("Recv");
             exit(1);
         }
-    }
-
-    for (int y = 0; y < GB / 65536; ++y) {
+        
         if (send(socket, buf, CHUNK_SIZE, 0) == -1) {
             perror("Send");
             exit(1);
