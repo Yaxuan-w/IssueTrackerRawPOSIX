@@ -1,3 +1,88 @@
+## 9/23/2024
+
+quick updates:
+**For testing on sphere**
+it shows 
+```sh
+@(1:28) $ lind /write.nexe 65536 > outputs/lind_65536_write.txt
+
+executing: [sel_ldr -a -- "runnable-ld.so" --library-path "/lib/glibc" /write.nexe 65536]
+[3652,3107958592:02:53:08.365782] BYPASSING ALL ACL CHECKS
+thread '<unnamed>' panicked at std/src/io/stdio.rs:1117:9:
+failed printing to stdout: No space left on device (os error 28)
+```
+i need to find how to increase memory, i currently used the default memory settings.
+
+**Automation**
+I finished almost all related scripts in branch ipc-fix (link: https://github.com/Lind-Project/lind_project/tree/ipc-fix)
+Details:
+- `/lind_project/ipc_test.sh`: suppose to be the general script that run all the tests
+- `tests/ipc_performance/sfi_overhead`: suppose to be the SFI overhead tests.
+  - Run corresponding tests and extract from output, then generate required file. getpid() and close() parts are tested.
+  - Switching scripts for RawPOSIX -> RustPOSIX fast -> RustPOSIX default
+- `tests/ipc_performance/buf_allocate`: suppose to be the uds/pipe on lind/native tests.
+
+**TODO**
+- `write()` encountered problems on server2 when testing. After redirecting output to a file, `tail -n 1` should be able to extract the average time results, but failed when testing tonight. The server was down before I analyzed the problem. On sphere I met memory limitation. Tmr will start from this.
+- Need to test switching scripts
+- Need to test overall process
+Then should be good to generate Docker image
+
+
+### `write()` with `perf` on both Native linux and Lind (RustPOSIX)
+- Compile rustposix with debug=fast
+- make perf graph: lind/native buf_size=4
+
+#### Configuration
+
+Compile:
+
+```sh
+x86_64-nacl-gcc write.c -o write.nexe -lrt -std=gnu99 -O3
+/usr/local/gcc-4.4.3/bin/gcc write.c -o write -lrt -std=gnu99 -O3
+```
+
+Run:
+
+```sh
+./write 1 > nat_1.txt
+lind /write.nexe 1 > lind_1.txt
+```
+
+#### Results
+
+```sh
+==> lind_1.txt <==
+Buffer size 1 bytes: 1000000 write() calls, average time 114 ns
+
+==> lind_16.txt <==
+Buffer size 16 bytes: 1000000 write() calls, average time 128 ns
+
+==> lind_256.txt <==
+Buffer size 256 bytes: 1000000 write() calls, average time 324 ns
+
+==> lind_4096.txt <==
+Buffer size 4096 bytes: 1000000 write() calls, average time 1962 ns
+
+==> lind_65536.txt <==
+Buffer size 65536 bytes: 1000000 write() calls, average time 39855 ns
+
+==> nat_1.txt <==
+Buffer size 1 bytes: 1000000 write() calls, average time 360 ns
+
+==> nat_16.txt <==
+Buffer size 16 bytes: 1000000 write() calls, average time 367 ns
+
+==> nat_256.txt <==
+Buffer size 256 bytes: 1000000 write() calls, average time 448 ns
+
+==> nat_4096.txt <==
+Buffer size 4096 bytes: 1000000 write() calls, average time 1515 ns
+
+==> nat_65536.txt <==
+Buffer size 65536 bytes: 1000000 write() calls, average time 37755 ns
+```
+
 ## 9/13/2024
 
 - The issue occurred because the Ubuntu container had multiple versions of GCC installed (gcc and gcc-7). When compiling GCC-4 in the Sphere, gcc-7 was detected and used for compilation, but on the server, gcc (version 9) was automatically used for testing. This led to failures in modifying the Makefile to pass the necessary flags, resulting in gcc compilation failure. 

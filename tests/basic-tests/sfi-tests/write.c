@@ -14,8 +14,6 @@ long long gettimens() {
 }
 
 int main(int argc, char *argv[]) {
-    // int buffer_sizes[] = {1, 16, 256, 4096, 65536}; // 2^0, 2^4, 2^8, 2^12, 2^16
-    // int num_sizes = sizeof(buffer_sizes) / sizeof(buffer_sizes[0]);
     int buf_size = atoi(argv[1]);
     char *buffer = (char *)malloc(buf_size);
     if (!buffer) {
@@ -34,7 +32,7 @@ int main(int argc, char *argv[]) {
     long long total_time = end_time - start_time;
     long long average_time = total_time / LOOP_COUNT;
     
-    fprintf(stderr, "\nBuffer size %d bytes: %d write() calls, average time %lld ns\n", buf_size, LOOP_COUNT, average_time);
+    printf("\nBuffer size %d bytes: %d write() calls, average time %lld ns\n", buf_size, LOOP_COUNT, average_time);
     fflush(NULL);
     
     free(buffer);
