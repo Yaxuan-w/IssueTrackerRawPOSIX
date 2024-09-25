@@ -5,8 +5,9 @@
 #include <time.h>
 #include <string.h>
 
-#define LOOP_COUNT 1000000
+#define LOOP_COUNT 32768
 
+// Collect same data point for all of them
 long long gettimens() {
     struct timespec tp;
     clock_gettime(CLOCK_MONOTONIC, &tp);
