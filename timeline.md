@@ -1,7 +1,15 @@
 ## 10/6/2024
+
+### Loopback v.s. Pipe on Native
+
+Nick noticed that the native loopback for 4 looks like its around 25% of native pipe but the raw data suggests it should be slower. I output mean and std for raw data and calculated by hand to verify correctness. The mean of native loopback is ~3.5x slower than native pipe, which aligned to the graph. I checked the results from server3, native loopback is ~3x slower than the native pipe, which aligns to sphere results.
+
+I used tcpdump when running loopback test on native and captured lots of network activities. We handled loopback as domain socket in RustPOSIX which never goes to kernel. My guess is that loopback on native will still go to various layers of the networking stack to communicate via TCP, which will cause extra overhead.
+
+### LAMP Stack on Lind and Native
 Updated app.py: https://github.com/Lind-Project/lind_project/blob/lamp-all-4/tests/lamp_stack/profiling/flask_app/app.py
 
-### Error-1: Cannot find table
+#### Error-1: Cannot find table
 **Cause:** The target table could not be found in the database.
 **Solution:** Added database initialization logic that automatically inserts data when the table is empty, ensuring that the table is properly initialized before any queries are executed.
 
