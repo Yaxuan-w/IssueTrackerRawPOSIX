@@ -1,3 +1,25 @@
+## 10/6/2024
+Updated app.py: https://github.com/Lind-Project/lind_project/blob/lamp-all-4/tests/lamp_stack/profiling/flask_app/app.py
+
+### Error-1: Cannot find table
+**Cause:** The target table could not be found in the database.
+**Solution:** Added database initialization logic that automatically inserts data when the table is empty, ensuring that the table is properly initialized before any queries are executed.
+
+**Error-2:** Access uninitialized ID
+**Cause:** An uninitialized ID was being accessed, leading to errors.
+**Solution:** Refined app.py to ensure that data initialization only happens when necessary, preventing access to uninitialized IDs.
+
+**Error-3:** Cage ID is outside a valid range (only met in lind)
+**Cause:** A new database connection was being created and closed for each request, which resulted in a large number of processes being started in a short time, ultimately causing resource limits to be exceeded.
+**Solution:** Changed to use a connection pool to replace the frequent creation and closing of connections, limiting resource usage and reducing system load.
+
+**Benchmark Command Line**
+```sh
+wrk -t1 -c1 -d30 --timeout 30 http://localhost:80/queries?queries=10
+wrk -t1 -c1 -d30 --timeout 30 http://localhost:80/db
+wrk -t1 -c1 -d30 --timeout 30 http://localhost:80/plaintext
+```
+
 ## 9/23/2024
 
 quick updates:
