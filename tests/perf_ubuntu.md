@@ -8,7 +8,7 @@ cd libtraceevent
 sudo make install
 sudo apt-get install build-essential git flex bison libdw-dev libunwind-dev libssl-dev libslang2-dev \
 libperl-dev llvm-dev liblzma-dev libzstd-dev libnuma-dev libbabeltrace-dev \
-libcapstone-dev libpfm4-dev systemtap-sdt-dev pkg-config libstdc++-7-dev
+libcapstone-dev libpfm4-dev systemtap-sdt-dev pkg-config libstdc++-9-dev
 sudo ldconfig
 
 git clone --depth 1 https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
